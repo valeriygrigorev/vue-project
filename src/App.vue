@@ -1,7 +1,7 @@
 <template>
     <v-app>
       <HeaderComponent></HeaderComponent>
-      <v-main >
+      <v-main>
         <v-container>
           <ProgressLinear></ProgressLinear>
           <router-view/>
@@ -51,6 +51,7 @@ nav {
 }
 main {
   margin-top: 64px;
+  min-width: 340px;
 }
 
 </style>
