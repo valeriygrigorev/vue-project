@@ -14,7 +14,6 @@
                     :readonly="loading"
                     :rules="[required]"
                     class="mb-2"
-                    clearable
                     :label="tl('Username')"
                     :placeholder="tl('Enter your username')"
                 ></v-text-field>
@@ -23,7 +22,6 @@
                     v-model="password"
                     :readonly="loading"
                     :rules="[required]"
-                    clearable
                     :label="tl('Password')"
                     :placeholder="tl('Enter your password')"
                 ></v-text-field>
@@ -47,6 +45,7 @@
                     size="large"
                     variant="elevated"
                     class="mt-5"
+                    v-show="!isAuthenticated"
                 >
                   <router-link
                       to="/login"
@@ -76,7 +75,7 @@ export default {
     refName: 'registerForm'
   }),
   computed: {
-    ...mapGetters(['loading']),
+    ...mapGetters(['loading', 'isAuthenticated']),
   },
   methods: {
     onSubmit() {

@@ -80,10 +80,12 @@ export default {
                 if (error.response.status === 400) {
                     errorMessage(tl('Failed to get user information'));
                 } else if (error.response.status === 401) {
-                    //errorMessage(tl('Access to the main page is not possible. The user is not logged in'));
-                } else {
+                    //попытка зайти на главную страницу, при текущем API
+                    //это может сделать только аутентифицированный пользователь.
+                    //Предусмотрен редирект на страницу входа.
+                } else if (error.response) {
                     errorMessage(tl('Unknown error'))
-                }
+                } else axiosErrorHandle()
             }
 
             const requestParams = {

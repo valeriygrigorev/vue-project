@@ -21,6 +21,6 @@
   "The user has been successfully registered": "Пользователь успешно зарегистрирован",
   "Unknown error": "Неизвестная ошибка",
   "Username": "Имя пользователя",
-  "You are logged in. The form is not available": "Вы авторизованы. Форма недоступна",
+  "You are logged in. The login form is not available": "Вы авторизованы. Форма входа недоступна",
   "Test task": "Тестовое задание"
 }

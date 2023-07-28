@@ -5,7 +5,7 @@
      </template>
      <template v-slot:append>
         <LanguageComponent></LanguageComponent>
-        <v-btn @click="logout" v-show="logoutVisible">{{tl('Logout')}}</v-btn>
+        <v-btn @click="logout" v-show="isAuthenticated">{{tl('Logout')}}</v-btn>
      </template>
      <ProgressLinear></ProgressLinear>
    </v-app-bar>
@@ -21,11 +21,11 @@ export default {
     logout() {
       this.$router.push('/login');
       this.$store.dispatch('logout');
-      this.$store.dispatch('hideLogoutVisible');
+      this.$store.dispatch('hideLogout');
     },
   },
   computed: {
-    ...mapGetters(['logoutVisible']),
+    ...mapGetters(['isAuthenticated']),
   },
   components: {
     LanguageComponent,

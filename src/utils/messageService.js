@@ -12,7 +12,7 @@ function successMessage (text, options = {}) {
 function errorMessage (text, options = {}) {
     toast.error(text, {...defaultOptions, ...options, type: TYPE.ERROR})
 }
-//todo возможно удалить, если не будет нигде использовано
+
 function warningMessage (text, options = {}) {
     toast.warning(text, {...defaultOptions, ...options, type: TYPE.WARNING})
 }

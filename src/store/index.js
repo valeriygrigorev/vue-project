@@ -11,7 +11,7 @@ export default createStore({
       { code: 'ru', name: 'RU', locale: 'ru-RU' },
       { code: 'en', name: 'EN', locale: "en-EN" },
     ],
-    logoutVisible: !!sessionStorage.getItem('authToken'),
+    isAuthenticated: !!sessionStorage.getItem('authToken'),
     //редирект
     redirect: null,
   },
@@ -19,7 +19,7 @@ export default createStore({
     selectedLanguage: state => state.selectedLanguage,
     locale: state => state.locale,
     languages: state => state.languages,
-    logoutVisible: state => state.logoutVisible,
+    isAuthenticated: state => state.isAuthenticated,
     redirect: state => state.redirect,
   },
   mutations: {
@@ -27,16 +27,16 @@ export default createStore({
       state.selectedLanguage = state.languages.find(language => language.code === payload.code).name;
       state.locale = state.languages.find(language => language.code === payload.code).locale;
     },
-    showLogoutVisible: state => state.logoutVisible = true,
-    hideLogoutVisible: state => state.logoutVisible = false,
+    showLogout: state => state.isAuthenticated = true,
+    hideLogout: state => state.isAuthenticated = false,
     setRedirect: (state, payload) => state.redirect = payload,
     clearRedirect: state => state.redirect = null,
   },
   actions: {
     changeLanguage: (context, payload) => context.commit('selectedLanguage', payload),
     logout: () => sessionStorage.removeItem('authToken'),
-    showLogoutVisible: context => context.commit('showLogoutVisible'),
-    hideLogoutVisible: context => context.commit('hideLogoutVisible'),
+    showLogout: context => context.commit('showLogout'),
+    hideLogout: context => context.commit('hideLogout'),
     setRedirect: context => context.commit('setRedirect'),
     clearRedirect: context => context.commit('clearRedirect'),
   },

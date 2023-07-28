@@ -21,6 +21,6 @@
   "The user has been successfully registered": "The user has been successfully registered",
   "Unknown error": "Unknown error",
   "Username": "Username",
-  "You are logged in. The form is not available": "You are logged in. The form is not available",
+  "You are logged in. The login form is not available": "You are logged in. The login form is not available",
   "Test task": "Test task"
 }

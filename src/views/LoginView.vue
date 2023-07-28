@@ -14,7 +14,6 @@
                   :readonly="loading"
                   :rules="[required]"
                   class="mb-2"
-                  clearable
                   :label="tl('Username')"
                   :placeholder="tl('Enter your username')"
               ></v-text-field>
@@ -22,7 +21,6 @@
                   v-model="password"
                   :readonly="loading"
                   :rules="[required]"
-                  clearable
                   :label="tl('Password')"
                   :placeholder="tl('Enter your password')"
               ></v-text-field>
@@ -83,7 +81,7 @@ export default {
       payload.username = this.username;
       payload.password = this.password;
       this.$store.dispatch('login', payload);
-      this.$store.dispatch('showLogoutVisible');
+      this.$store.dispatch('showLogout');
     },
     required(v) {
       return !!v || this.tl('Field is required')
